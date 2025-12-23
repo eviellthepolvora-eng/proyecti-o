@@ -1,0 +1,11 @@
+ECHO est  activado.
+paso 1 hacer cmd en la dirección de la carpeta 
+paso 2 hacer ' git init' para crear repositorio
+paso 3 echo > nombre del archivo o guardarlo en la carpeta
+paso 4 'code. ' abrir el visual studio
+paso 5 'git add' nombre del codigo para agregar cualquier código al repositorio
+paso 6 'git status' para verificar que se halla agregado correctamente o no quede nada por agreagr
+paso 7 'git commit -m' agregar una nota al guardar el código
+
+nota siempre hacer estos pasos
+paso 1
