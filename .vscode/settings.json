@@ -1,0 +1,23 @@
+{
+    "vscode-pokemon.theme": "none",
+    "vscode-pokemon.defaultPokemon": [
+    {
+      "type": "bulbasaur",
+    },
+    {
+      "type": "gengar",
+    },
+    {
+      "type": "alakazam",
+    },
+    {
+      "type": "sceptile",
+    },
+    {
+      "type": "aggron",
+    },
+    {
+      "type": "raykuazam",
+    },
+  ]
+}
