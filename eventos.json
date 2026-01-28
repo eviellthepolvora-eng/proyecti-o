@@ -1,0 +1,40 @@
+[
+    {
+        "fecha": "(2, 3, 2023)",
+        "factura": {
+            "MODELO": "Treck",
+            "DIRECCION": [
+                "HAVANA",
+                "guanabo",
+                "2",
+                [
+                    "f",
+                    "g"
+                ],
+                " Casa: 321"
+            ],
+            "CLIENTE": "Nombre : ('evo', 'gonzalez') , Apellidos : ('almeida', 'cruz')",
+            "TELEFONO": "+53 57848393",
+            "CU\u00d1O": " PAGADO "
+        }
+    },
+    {
+        "fecha": "(2, 3, 2023)",
+        "factura": {
+            "MODELO": "Yamaha",
+            "DIRECCION": [
+                "havana",
+                "guaana",
+                "2",
+                [
+                    "r",
+                    "s"
+                ],
+                " Casa: 33"
+            ],
+            "CLIENTE": "Nombre : ('bol', 'usain') , Apellidos : ('van', 'hel')",
+            "TELEFONO": "+53 57385302",
+            "CU\u00d1O": " PAGADO "
+        }
+    }
+]
