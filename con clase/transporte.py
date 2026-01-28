@@ -1,3 +1,4 @@
+#factura viene saliendo de la factura q se guarda en el json
 class transportista:
     def __init__(self):
         self.trans = ["Pancho" , "Juan","Ernesto"]
@@ -24,7 +25,14 @@ class transportista:
         while True == self.existe_factura(factura):
             dispo = self.carro_disponible()
             self.trans.remove(dispo)
-            return f"El encargado de entregar la factura es {dispo}"
+            return f"El encargado de entregar la factura {factura} es {dispo}"
 #factura ={"hola":1}
-#a = transportista()
+#a = transportista() 
 #print(a.usar_carro(factura))
+# la idea es q al momento de usar el carro se quite de la lista de transportistas disponibles
+# y asi no se pueda volver a usar hasta q se termine la entrega
+# luego de terminar la entrega se vuelve a agregar a la lista de transportistas disponibles {como gestiono esto}
+# asi se puede llevar un control de los transportistas disponibles
+#segunda tarea
+#agendarle turno al en correspondencia con la factura q le toca entregar
+

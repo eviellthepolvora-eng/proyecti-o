@@ -1,3 +1,4 @@
+#anadir la posibilidad de alerta cuando se acabe un modelo de moto
 class almacen :
     def __init__(self):
         self.CANTIDADES = []

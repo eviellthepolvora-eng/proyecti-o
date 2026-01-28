@@ -107,6 +107,7 @@ class factura:
     def go(self):
         print("~~~~~~~Factura del cliente~~~~~~~")
         res = self.modelo()
+        #anadir una restriccion tal que si quedan 5 motos o menos en el almacen "ALERTA DE STOCK BAJO"
         if not self.verificacion(res , "modelo"):
             return None
         res = self.direccion()
