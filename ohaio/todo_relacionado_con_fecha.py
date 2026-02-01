@@ -54,11 +54,11 @@ class fechinguiri:
                     date_valid = False
                     print("repita la fecha")
                     break
-                date = dia,mes,ano# SI SE LE QUITAN UN TAB ENTONCES SIEMORE GUARDA LA FECHA 
+                date = (dia,mes,ano)# SI SE LE QUITAN UN TAB ENTONCES SIEMORE GUARDA LA FECHA 
                 break
             return date
     def repeticion(self):
-        for fechas in self.fechas:
+        for fechas in self.fecha:
             if fechas >=3:
                 return "debe cambiar de dia"
             else:

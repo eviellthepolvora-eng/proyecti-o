@@ -3,7 +3,17 @@ from todo_relacionado_con_fecha import fechinguiri
 class eventoun:
     def __init__(self):
         self.evento = self.cargar_eventos()  # cargamos los eventos anteriores
-
+        self.entregado ="entregado.json"
+    def guardar_entregado(self , factura , transportista):
+            try:
+                with open("entregado.json", "r") as f:
+                    bitacora = json.load(f)
+            except FileNotFoundError:
+                bitacora = []
+            registro = {"transportista": transportista , "factura": factura , "estado": "ENTREGADO"}
+            bitacora.append(registro)
+            with open("entregado.json", "w") as f:
+                json.dump(bitacora, f, indent=4)
     # Guardar en archivo
     def guardar_eventos(self):
         with open("eventos.json", "w") as f: # w modificar archivo
@@ -19,7 +29,7 @@ class eventoun:
 
     def agregar_factura(self):
         print("Selecciona el dia de la entrega\n")
-        dias_de_venta = fechinguiri().fecha()
+        dias_de_venta = fechinguiri().date()
         from factura_PERFECTA import factura 
         if not dias_de_venta:
             print("Haga otra eleccion\n")
@@ -28,7 +38,7 @@ class eventoun:
             print("FECHA INCORRECTA")
         else:
             repetida = 0
-            nueva_fecha = dias_de_venta[0]
+            nueva_fecha = dias_de_venta
             f = factura().go()
             if f == "Factura inválida":
                 return None
@@ -41,7 +51,7 @@ class eventoun:
     def eliminar(self):
         while True:
             print("Estos son sus textos\n")
-            self.leer_texto()
+            self.leer_facturas()
             eliminar = input(f"Numero de la factura que desea eliminar (ESC : para volver):\n")
             if eliminar.upper() == "ESC":
                  break
@@ -78,27 +88,29 @@ class eventoun:
             else:
                 return "debe cambiar de dia"
         return contador
+    def filtrado(self , fecha):
+        resultados = []
+        for factura in self.evento:
+            if factura['fecha'] == fecha:
+                resultados.append(factura)
+        return resultados
 
-    def run(self):
-        while True:
-            print("\n OPCIONES :")
-            print("1. AGREGAR FACTURA")
-            #print("2. LEER FACTURAS")
-            print("3. ELIMINAR FACTURA")
-            print("4. SALIR")
-            OPCION = input("ELIGE UNA OPCION:\n ")
-            if OPCION == "1":
-                self.agregar_factura()
-            elif OPCION == "2":
-                self.leer_facturas()
-            elif OPCION == "3":
-                self.eliminar()
-            elif OPCION == "4":
-                print("Saliendo ... ")
-                break
-            else:
-                print("Opcion inválida intente denuevo")
-
-# Ejecutamos
-if __name__ == "__main__":
-    eventoun().run()
+   # def run(self):
+   #     while True:
+   #         print("\n OPCIONES :")
+   #         print("1. AGREGAR FACTURA")
+   #         #print("2. LEER FACTURAS")
+   #         print("3. ELIMINAR FACTURA")
+   #         print("4. SALIR")
+   #         OPCION = input("ELIGE UNA OPCION:\n ")
+   #         if OPCION == "1":
+   #             self.agregar_factura()
+   #         elif OPCION == "2":
+   #             self.leer_facturas()
+   #         elif OPCION == "3":
+   #             self.eliminar()
+   #         elif OPCION == "4":
+   #             print("Saliendo ... ")
+   #             break
+   #         else:
+   #             print("Opcion inválida intente denuevo")

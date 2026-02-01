@@ -1,0 +1,40 @@
+[
+    {
+        "fecha": "2",
+        "factura": {
+            "MODELO": "Yamaha",
+            "DIRECCION": [
+                "hav",
+                "guana",
+                "por",
+                [
+                    "que",
+                    "me"
+                ],
+                " Casa: 4"
+            ],
+            "CLIENTE": "Nombre : ('sale', 'de') , Apellidos : ('los', 'cojjones')",
+            "TELEFONO": "+53 59676282",
+            "CU\u00d1O": " PAGADO "
+        }
+    },
+    {
+        "fecha": "(3, 2, 2026)",
+        "factura": {
+            "MODELO": "Yamaha",
+            "DIRECCION": [
+                "baja",
+                "yo",
+                "tr",
+                [
+                    "rompo",
+                    "toa"
+                ],
+                " Casa: 4"
+            ],
+            "CLIENTE": "Nombre : ('evell', 'e') , Apellidos : ('h', 'd')",
+            "TELEFONO": "+4 59676282",
+            "CU\u00d1O": " PAGADO "
+        }
+    }
+]
