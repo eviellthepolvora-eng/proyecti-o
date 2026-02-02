@@ -2,6 +2,7 @@ HISTORIAL = "entregado.json"
 from todo_relacionado_con_fecha import fechinguiri
 from impor import eventoun
 from transporte import transportista
+from almacen_clases import almacen
 class correr_todo:
     print("Buen dia señor")
     print("Que dia es hoy")
@@ -31,6 +32,9 @@ class correr_todo:
         elif OPCION == 2:
             a.agregar_factura()
         elif OPCION == 3:
+            f = almacen()
+            f.almacenado()
+            #f.verificar_stock()
             # EN CASO DE QUE SE ACABE LA MERCANCIA HACER UN TEXTO DE "SIN STOCK"
             # EN CASO DE QUE QUEDEN 5 MOTOS O MENOS HACER UN TEXTP "POCO STOCK"
             print("YES") 

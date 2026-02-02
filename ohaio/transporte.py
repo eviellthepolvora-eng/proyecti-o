@@ -1,16 +1,14 @@
 #factura viene saliendo de la factura q se guarda en el json
+from impor import eventoun
 class transportista:
     def __init__(self):
         self.trans = ["Pancho" , "Juan","Ernesto"]
         self.facturas_pendientes = None     
     def existe_factura(self, factura):
-        """Verifica si hay facturas para entregar"""
         if factura is None:
-            return False
-        if not hasattr(factura, 'evento'):
            #ver el hasattr como funciona 
             return False
-        if len(factura.evento) > 0:
+        if len(factura) > 0:
             return True
         return False
     def carro_disponible(self):
@@ -35,13 +33,16 @@ class transportista:
             print("No hay transportistas disponibles")
             return None
         self.trans.remove(dispo)
-        primer = factura.evento[0]
+        primer = factura[0]
         print(f"El encargado de entregar la factura {primer['factura']} es {dispo}\n")
-        factura.guardar_entregado(primer['factura'] , dispo)
-        factura.evento.pop(0)
-        factura.guardar_eventos()
+        ev = eventoun()
+        ev.guardar_entregado(primer['factura'] , dispo)
+        # Eliminar la factura de eventos.json (persistir)
+        ev.evento.remove(primer)
+        factura.pop(0)
+        ev.guardar_eventos()
         # Recursión solo si hay más facturas
-        if len(factura.evento) > 0:
+        if len(factura) > 0:
             return self.usar_carro(factura)
 #factura ={"hola":1}
 #a = transportista() 

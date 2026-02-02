@@ -2,69 +2,252 @@
     {
         "transportista": "Pancho",
         "factura": {
-            "fecha": "2",
-            "factura": {
-                "MODELO": "Yamaha",
-                "DIRECCION": [
-                    "hav",
-                    "guana",
-                    "por",
-                    [
-                        "que",
-                        "me"
-                    ],
-                    " Casa: 4"
+            "MODELO": "Yamaha",
+            "CANTIDAD": 4,
+            "DIRECCION": [
+                "hav",
+                "s",
+                "s",
+                [
+                    "s",
+                    "s"
                 ],
-                "CLIENTE": "Nombre : ('sale', 'de') , Apellidos : ('los', 'cojjones')",
-                "TELEFONO": "+53 59676282",
-                "CU\u00d1O": " PAGADO "
-            }
+                " Casa: 4"
+            ],
+            "CLIENTE": "Nombre : ('e', 'w') , Apellidos : ('q', 'w')",
+            "TELEFONO": "+4 59676282",
+            "CU\u00d1O": " PAGADO "
+        },
+        "estado": "ENTREGADO"
+    },
+    {
+        "transportista": "Juan",
+        "factura": {
+            "MODELO": "Suzuki",
+            "CANTIDAD": 1,
+            "DIRECCION": [
+                "hav",
+                "s",
+                "w",
+                [
+                    "e",
+                    "w"
+                ],
+                " Casa: 2"
+            ],
+            "CLIENTE": "Nombre : ('e', 'f') , Apellidos : ('g', 'f')",
+            "TELEFONO": "+5 59676282",
+            "CU\u00d1O": " PAGADO "
         },
         "estado": "ENTREGADO"
     },
     {
         "transportista": "Pancho",
         "factura": {
-            "fecha": "2",
-            "factura": {
-                "MODELO": "Yamaha",
-                "DIRECCION": [
-                    "hav",
-                    "guana",
-                    "por",
-                    [
-                        "que",
-                        "me"
-                    ],
-                    " Casa: 4"
+            "MODELO": "Yamaha",
+            "CANTIDAD": 4,
+            "DIRECCION": [
+                "hav",
+                "s",
+                "s",
+                [
+                    "s",
+                    "s"
                 ],
-                "CLIENTE": "Nombre : ('sale', 'de') , Apellidos : ('los', 'cojjones')",
-                "TELEFONO": "+53 59676282",
-                "CU\u00d1O": " PAGADO "
-            }
+                " Casa: 4"
+            ],
+            "CLIENTE": "Nombre : ('e', 'w') , Apellidos : ('q', 'w')",
+            "TELEFONO": "+4 59676282",
+            "CU\u00d1O": " PAGADO "
+        },
+        "estado": "ENTREGADO"
+    },
+    {
+        "transportista": "Juan",
+        "factura": {
+            "MODELO": "Suzuki",
+            "CANTIDAD": 1,
+            "DIRECCION": [
+                "hav",
+                "s",
+                "w",
+                [
+                    "e",
+                    "w"
+                ],
+                " Casa: 2"
+            ],
+            "CLIENTE": "Nombre : ('e', 'f') , Apellidos : ('g', 'f')",
+            "TELEFONO": "+5 59676282",
+            "CU\u00d1O": " PAGADO "
         },
         "estado": "ENTREGADO"
     },
     {
         "transportista": "Pancho",
         "factura": {
-            "fecha": "2",
-            "factura": {
-                "MODELO": "Yamaha",
-                "DIRECCION": [
-                    "hav",
-                    "guana",
-                    "por",
-                    [
-                        "que",
-                        "me"
-                    ],
-                    " Casa: 4"
+            "MODELO": "Yamaha",
+            "CANTIDAD": 4,
+            "DIRECCION": [
+                "hav",
+                "s",
+                "s",
+                [
+                    "s",
+                    "s"
                 ],
-                "CLIENTE": "Nombre : ('sale', 'de') , Apellidos : ('los', 'cojjones')",
-                "TELEFONO": "+53 59676282",
-                "CU\u00d1O": " PAGADO "
-            }
+                " Casa: 4"
+            ],
+            "CLIENTE": "Nombre : ('e', 'w') , Apellidos : ('q', 'w')",
+            "TELEFONO": "+4 59676282",
+            "CU\u00d1O": " PAGADO "
+        },
+        "estado": "ENTREGADO"
+    },
+    {
+        "transportista": "Pancho",
+        "factura": {
+            "MODELO": "Yamaha",
+            "CANTIDAD": 4,
+            "DIRECCION": [
+                "hav",
+                "s",
+                "s",
+                [
+                    "s",
+                    "s"
+                ],
+                " Casa: 4"
+            ],
+            "CLIENTE": "Nombre : ('e', 'w') , Apellidos : ('q', 'w')",
+            "TELEFONO": "+4 59676282",
+            "CU\u00d1O": " PAGADO "
+        },
+        "estado": "ENTREGADO"
+    },
+    {
+        "transportista": "Pancho",
+        "factura": {
+            "MODELO": "Yamaha",
+            "CANTIDAD": 4,
+            "DIRECCION": [
+                "hav",
+                "s",
+                "s",
+                [
+                    "s",
+                    "s"
+                ],
+                " Casa: 4"
+            ],
+            "CLIENTE": "Nombre : ('e', 'w') , Apellidos : ('q', 'w')",
+            "TELEFONO": "+4 59676282",
+            "CU\u00d1O": " PAGADO "
+        },
+        "estado": "ENTREGADO"
+    },
+    {
+        "transportista": "Juan",
+        "factura": {
+            "MODELO": "Yamaha",
+            "CANTIDAD": 4,
+            "DIRECCION": [
+                "hav",
+                "s",
+                "s",
+                [
+                    "s",
+                    "s"
+                ],
+                " Casa: 4"
+            ],
+            "CLIENTE": "Nombre : ('e', 'w') , Apellidos : ('q', 'w')",
+            "TELEFONO": "+4 59676282",
+            "CU\u00d1O": " PAGADO "
+        },
+        "estado": "ENTREGADO"
+    },
+    {
+        "transportista": "Ernesto",
+        "factura": {
+            "MODELO": "Yamaha",
+            "CANTIDAD": 4,
+            "DIRECCION": [
+                "hav",
+                "s",
+                "s",
+                [
+                    "s",
+                    "s"
+                ],
+                " Casa: 4"
+            ],
+            "CLIENTE": "Nombre : ('e', 'w') , Apellidos : ('q', 'w')",
+            "TELEFONO": "+4 59676282",
+            "CU\u00d1O": " PAGADO "
+        },
+        "estado": "ENTREGADO"
+    },
+    {
+        "transportista": "Pancho",
+        "factura": {
+            "MODELO": "Yamaha",
+            "CANTIDAD": 4,
+            "DIRECCION": [
+                "hav",
+                "s",
+                "s",
+                [
+                    "s",
+                    "s"
+                ],
+                " Casa: 4"
+            ],
+            "CLIENTE": "Nombre : ('e', 'w') , Apellidos : ('q', 'w')",
+            "TELEFONO": "+4 59676282",
+            "CU\u00d1O": " PAGADO "
+        },
+        "estado": "ENTREGADO"
+    },
+    {
+        "transportista": "Juan",
+        "factura": {
+            "MODELO": "Yamaha",
+            "CANTIDAD": 4,
+            "DIRECCION": [
+                "hav",
+                "s",
+                "s",
+                [
+                    "s",
+                    "s"
+                ],
+                " Casa: 4"
+            ],
+            "CLIENTE": "Nombre : ('e', 'w') , Apellidos : ('q', 'w')",
+            "TELEFONO": "+4 59676282",
+            "CU\u00d1O": " PAGADO "
+        },
+        "estado": "ENTREGADO"
+    },
+    {
+        "transportista": "Pancho",
+        "factura": {
+            "MODELO": "Suzuki",
+            "CANTIDAD": 1,
+            "DIRECCION": [
+                "hav",
+                "s",
+                "w",
+                [
+                    "e",
+                    "w"
+                ],
+                " Casa: 2"
+            ],
+            "CLIENTE": "Nombre : ('e', 'f') , Apellidos : ('g', 'f')",
+            "TELEFONO": "+5 59676282",
+            "CU\u00d1O": " PAGADO "
         },
         "estado": "ENTREGADO"
     }
