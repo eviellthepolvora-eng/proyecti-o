@@ -1,7 +1,32 @@
-el proyecto consiste en un almacen de motos donde tambien se pueden efectuar pedidos
-El archivo el_inicio es la parte principal del proyecto osea desde ahi es que este se ejecuta
-consta de 3 partes principales
-parte uno el administrador q es el encargado de todo
-este vizualiza toda las facturas existentes , los modelos de moto , recoje los pedidos , verifica la estancia de los transportista y le asigna facturas
-segunda parte es el almacenero bueno esta consiste en verficar q halla en existencia todo los modelos de moto para cuando se pidan en facturas ,ademas se encarga de una vez queden pocos modelos reportarlo
-tercera parte los transportistas q vienen siendo los encargados de hacer entrega de los pedidos y q  sus carros se encuentren en optimas condiciones
+# Planificador de Entregas / Inventario (Proyecto adaptado)
+
+Dominio: Tienda y distribución de motos (gestión de facturas y entregas).
+
+Resumen rápido
+- Eventos: facturas con una fecha (tupla día/mes/año) y datos del cliente.
+- Recursos: `transportistas` (repartidores) y el `almacén` de modelos de moto.
+- Restricciones implementadas:
+  - Máximo 3 entregas por día (controlado en `impor.eventoun.repeticion`).
+  - Recursos limitados: número de transportistas y stock en `almacen.json`.
+
+Archivos principales
+- `el_inicio.py`: interfaz CLI principal (listar, agregar, eliminar,persistencia , filtrar ,ver inventario).
+- `impor.py`: gestión de eventos (leer/escribir `eventos.json`).
+- `transporte.py`: asignación de transportistas y registro de entregas `entregado.json`.
+- `almacen_clases.py`: inventario, aplicar entregas y alertas de stock bajo.
+
+Persistencia
+- `eventos.json`: eventos/facturas pendientes.
+- `entregado.json`: bitácora de entregas realizadas.
+- `almacen.json`: inventario actual.
+
+Cómo ejecutar
+1. Abrir una terminal en la carpeta del proyecto.
+2. Ejecutar:
+```bash
+python el_inicio.py
+```
+
+Notas y mejoras posibles
+- `almacen_clases.almacenado()` permite crear/actualizar inventario.
+- Se recomienda revisar y limpiar los JSON existentes si se migran datos.
