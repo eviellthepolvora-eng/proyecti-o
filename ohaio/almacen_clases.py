@@ -10,54 +10,44 @@ class almacen :
         print("MOTOS EN EL ALMACEN\n")
         for i in self.modelo:
             cantidad = (input(f"Cantidad de {i} :"))
-            self.CANTIDADES.append(cantidad)
+            self.CANTIDADES.append(int(cantidad))
         for fila in range(len(self.modelo)):
-            self.tabla[self.modelo[fila]] = self.CANTIDADES[fila]
+            self.tabla = {"modelo": self.modelo[fila], "cantidad": self.CANTIDADES[fila]}
             self.al.append(self.tabla)
-        return "INVENTARIO COMPLETO"
+        if len (self.al) > 1:
+            self.al.pop()
+            self.guardar_almacen()
+        else:
+            self.guardar_almacen()
+        return print("INVENTARIO COMPLETO")
     def mostrar_vertical(self , a:dict):
-        self.tabla
         print("\nModelo".ljust(10), "|","Cantidad".rjust(10))
-        for modelo , cantidad in self.tabla.items():
+        for item in self.al:
             print("-"*24)
-            print(f"{modelo.ljust(10)} : {cantidad.rjust(10)} ")
+            print(f"{item['modelo'].ljust(10)} : {item['cantidad'].rjust(10)} ")
     def guardar_almacen(self):
-        with open ("almacen" ,"w") as f:
-            return json.dump(self.CANTIDADES , f, indent=4)
+        with open ("almacen.json" ,"w") as f:
+            return json.dump(self.al , f, indent=4)
     def cargar_almacen(self):
         try:
-            with open ("almacen" ,"r") as f:
+            with open ("almacen.json" ,"r") as f:
                 return json.load(f)
         except FileNotFoundError:
             return []
-    def eliminacion_modelo (self,factura):
+    def eliminacion_modelo (self):
         with open("entregado.json", "r") as f:
-            json.load(f)
-        
+            z = json.load(f)
+        modelo_a_eliminar = z[-1]
+        for item in self.al:
+            if item["modelo"] == modelo_a_eliminar["factura"]["modelo"]:
+                item["cantidad"] = item["cantidad"] - modelo_a_eliminar["factura"]["CANTIDAD"]
+                break
+        self.guardar_almacen()
 
-    #def sin_stock():
-    
-#a = almacen()
-#a.almacenado()
-#print(a.mostrar_vertical(a.tabla))
-#verificacion de la existencia del modelo de moto
-# factura[0] indice de modelo de moto
-
-#cantidad = [23 , 42 , 56, 33 ,13]#Yamaha #Suzuki #AVA #Treck #Honda
-#almacen = [[modelo[0]*cantidad[0]] ,[modelo[1]*cantidad[1]] ,[modelo[2]*cantidad[2]] ,[modelo[3]*cantidad[3]] ,[modelo[4]*cantidad[4]]] 
-
-
-#def Yamaha:
-#    return modelo[0] | (CANTIDADES[0])
-#
-#def Suzuki :
-#    return modelo[1] | (CANTIDADES[1])
-#
-#def AVA
-#    return modelo[2] | (CANTIDADES[2])
-#
-#def Treck
-#    return modelo[3] | (CANTIDADES[3])
-#
-#def Honda
-#    return modelo[4] | (CANTIDADES[4])
+    def sin_stock(self):
+        low = {}
+        for item in self.al:
+            if int(item.get("cantidad", 0)) <= 5:
+                low[item.get("modelo")] = item.get("cantidad")
+            continue
+        return low

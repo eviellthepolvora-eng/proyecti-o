@@ -26,6 +26,7 @@ class factura:
                     self.factura["CANTIDAD"] = cant
             else:
                 print("Introduzca un numero valido")
+                return None
             return modelos[eleccion] , cant
     def direccion(self):
         provincia = input("Provincia:\n")

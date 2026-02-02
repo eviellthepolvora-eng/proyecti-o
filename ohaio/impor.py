@@ -36,8 +36,8 @@ class eventoun:
             return None
         if dias_de_venta[-1] == []:
             print("FECHA INCORRECTA")
+            return None
         else:
-            repetida = 0
             nueva_fecha = dias_de_venta
             f = factura().go()
             if f == "Factura inválida":
