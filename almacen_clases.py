@@ -15,7 +15,7 @@ class almacen :
             self.tabla = {"modelo": self.modelo[fila], "cantidad": self.CANTIDADES[fila]}
             self.al.append(self.tabla)
         if len (self.al) > 1:
-            self.al.pop()
+            self.al.pop() # usar del para eliminar el alamcen
             self.guardar_almacen()
         else:
             self.guardar_almacen()
@@ -43,6 +43,7 @@ class almacen :
                 item["cantidad"] = item["cantidad"] - modelo_a_eliminar["factura"]["CANTIDAD"]
                 break
         self.guardar_almacen()
+        return print("INVENTARIO ACTUALIZADO")
 
     def sin_stock(self):
         low = {}

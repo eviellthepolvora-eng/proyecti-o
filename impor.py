@@ -1,9 +1,11 @@
 import json
 from todo_relacionado_con_fecha import fechinguiri 
+from factura_PERFECTA import factura 
 class eventoun:
     def __init__(self):
         self.evento = self.cargar_eventos()  # cargamos los eventos anteriores
         self.entregado ="entregado.json"
+        #self.dias_disponibles = self.sugerir_siguiente_fecha()
     def guardar_entregado(self , factura , transportista):
             try:
                 with open("entregado.json", "r") as f:
@@ -29,24 +31,29 @@ class eventoun:
 
     def agregar_factura(self):
         print("Selecciona el dia de la entrega\n")
-        dias_de_venta = fechinguiri().date()
-        from factura_PERFECTA import factura 
-        if not dias_de_venta:
-            print("Haga otra eleccion\n")
+        dias_disponibles = self.sugerir_siguiente_fecha()
+        self.mostrar_fechas(dias_disponibles)
+        if not dias_disponibles:
+            print("No hay fechas disponibles entre esos dias ")
             return None
-        if dias_de_venta[-1] == []:
-            print("FECHA INCORRECTA")
-            return None
-        else:
-            nueva_fecha = dias_de_venta
-            f = factura().go()
-            if f == "Factura inválida":
-                return None
+        try:
+            sel = int(input("Seleccione el dia haciendo uso del numero que le antecede\n"))
+            if 1<= sel<=len(dias_disponibles):
+                dias_de_venta = dias_disponibles[sel-1]
             else:
-                banana = {'fecha': str(nueva_fecha), 'factura': f }
-                self.evento.append(banana)
-                self.guardar_eventos()  # guardamos cada vez que agregamos
-                print("~~~~~~~FACTURA AÑADIDA CORRECTAMENTE~~~~~~~")
+                print("Seleccion invalida")
+                return None
+        except ValueError:
+            print("Por favor ingrese un numero valido")
+            return None
+        f = factura().go()
+        if f is None:
+            print("Introduciste datos incorrectos anteriormente no se pudo crear la factura")
+            return None
+        banana = {'fecha': dias_de_venta, 'factura': f }
+        self.evento.append(banana)
+        self.guardar_eventos()  # guardamos cada vez que agregamos
+        print("~~~~~~~FACTURA AÑADIDA CORRECTAMENTE~~~~~~~")
 
     def eliminar(self):
         while True:
@@ -88,29 +95,33 @@ class eventoun:
             else:
                 return "debe cambiar de dia"
         return contador
+    
     def filtrado(self , fecha):
         resultados = []
         for factura in self.evento:
             if factura['fecha'] == fecha:
                 resultados.append(factura)
         return resultados
+    
+    def sugerir_siguiente_fecha(self):
+        conteos = self.repeticion()
+        dias_disponibles = []
+        print("Entre que dias desea el envio")
+        primer_dia = fechinguiri().date()
+        segundo_dia = fechinguiri().date()
+        print(f"Buscando fechas disponibles entre {primer_dia} y {segundo_dia}")
+        while primer_dia <= segundo_dia:
+            if primer_dia not in conteos:
+                dias_disponibles.append(primer_dia)
+                primer_dia = (primer_dia[0]+1, primer_dia[1], primer_dia[2])
+        return dias_disponibles
+    
+    def mostrar_fechas(self,a):
+        print("Estas son las fechas disponibles para la entrega:\n")
+        for i , n in enumerate(a, start = 1):
+            print (f"{i} . {n}\n")
 
-   # def run(self):
-   #     while True:
-   #         print("\n OPCIONES :")
-   #         print("1. AGREGAR FACTURA")
-   #         #print("2. LEER FACTURAS")
-   #         print("3. ELIMINAR FACTURA")
-   #         print("4. SALIR")
-   #         OPCION = input("ELIGE UNA OPCION:\n ")
-   #         if OPCION == "1":
-   #             self.agregar_factura()
-   #         elif OPCION == "2":
-   #             self.leer_facturas()
-   #         elif OPCION == "3":
-   #             self.eliminar()
-   #         elif OPCION == "4":
-   #             print("Saliendo ... ")
-   #             break
-   #         else:
-   #             print("Opcion inválida intente denuevo")
+#manana hacer commit
+#cambiar todo el proyecto a data time para manejar fechas con mas facilidad
+#verificacion de stock disponible antes de agregar factura
+#xq el transportista no retorna

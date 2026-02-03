@@ -57,16 +57,9 @@ class fechinguiri:
                 date = (dia,mes,ano)# SI SE LE QUITAN UN TAB ENTONCES SIEMORE GUARDA LA FECHA 
                 break
             return date
-    def repeticion(self):
-        for fechas in self.fecha:
-            if fechas >=3:
-                return "debe cambiar de dia"
-            else:
-                continue
     def guardar_fechas(self):
         with open("fechas.json", "w") as f: # w modificar archivo
             json.dump(self.fecha, f, indent=4)
-
     # Cargar desde archivo
     def cargar_fechas(self):
         try:
@@ -74,16 +67,3 @@ class fechinguiri:
                 return json.load(f)
         except FileNotFoundError:
             return []
-    def brr(self):
-        print("Este es su calendario")
-        print("1 - Seleccione la fecha\n2 - Mostrar fechas de entrega\n3 - Desea volver atras")
-        ELECCION = int(input("Elije una opcion\n"))
-        if ELECCION == 1 :
-            self.fecha = self.date()
-            if self.repeticion():
-                self.guardar_fechas(self.fecha)
-        elif ELECCION == 2:
-            print(self.fecha)
-        elif ELECCION == 3:
-             return None
-#fechinguiri().brr()

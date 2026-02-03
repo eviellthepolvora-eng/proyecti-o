@@ -73,7 +73,7 @@ class factura:
             return None
         primer_apellido = (input("Primer apellido :\n"))
         segundo_apellido = (input("Segundo apellido :\n"))
-        if (not primer_apellido and not segundo_apellido) or not primer_apellido or not segundo_apellido: 
+        if (not primer_apellido and not segundo_apellido) or (not primer_apellido) or (not segundo_apellido): 
             print("Factura invalida")
             return None
         elif (primer_apellido.isdigit() or segundo_apellido.isdigit()) :
@@ -126,7 +126,7 @@ class factura:
         if not self.verificacion(res , "telefono"):
             return None
         res = self.cuño()
-        if not self.verificacion(res , "telefono"):
+        if not self.verificacion(res , "cuño"):
             return None
         print ("\nfactura lista")
         return self.factura
