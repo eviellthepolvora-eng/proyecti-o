@@ -126,7 +126,7 @@ class factura:
         if not self.verificacion(res , "telefono"):
             return None
         res = self.cuño()
-        if not self.verificacion(res , "telefono"):
+        if not self.verificacion(res , "cuño"):
             return None
         print ("\nfactura lista")
         return self.factura

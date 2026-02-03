@@ -1,4 +1,3 @@
-HISTORIAL = "entregado.json"
 from todo_relacionado_con_fecha import fechinguiri
 from impor import eventoun
 from transporte import transportista
@@ -8,15 +7,16 @@ class correr_todo:
     print("Que dia es hoy")
     hoy = str(fechinguiri().date())
     # meter el dia
+    c = transportista()
+    a = eventoun()
+    f = almacen()
     while True:
         print("\nComo puedo servirle ?\n")
         print("1 . Vizualizar trabajos pendientes")
         print("2 . Tomar nuevos pedidos")
         print("3 . Verificar disponibilidad")
         print("4 . Salir\n")
-        a = eventoun()
-        c = transportista()
-        f = almacen()
+        #try:
         OPCION = int(input("ELIJA UNA OPCION\n"))
         if OPCION == 1:
             a.leer_facturas()
@@ -40,15 +40,20 @@ class correr_todo:
                 print("2 . Añadir motos al inventario")
                 print("3 . Ver modelos con stock bajo")
                 print("4 . Volver al menu principal\n")
-                opcion_almacen = int(input("Elija una opcion\n"))
-                if opcion_almacen == 1:
-                    f.mostrar_vertical(f.al)
-                elif opcion_almacen == 3:
-                    f.sin_stock()
-                elif opcion_almacen == 2:
-                    f.almacenado()
-                elif opcion_almacen == 4:
-                    break
+                try:
+                    opcion_almacen = int(input("Elija una opcion\n"))
+                    if opcion_almacen == 1:
+                        f.mostrar_vertical(f.al)
+                    elif opcion_almacen == 3:
+                        f.sin_stock()
+                    elif opcion_almacen == 2:
+                        f.almacenado()
+                    elif opcion_almacen == 4:
+                        break
+                except ValueError:
+                    print("Por favor ingrese un numero valido\n")
         elif OPCION == 4:
             print("Saliendo del programa...")
             break
+        #except ValueError:
+        #    print("Por favor ingrese un numero valido\n")
