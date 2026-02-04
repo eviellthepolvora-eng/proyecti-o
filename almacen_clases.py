@@ -24,7 +24,7 @@ class almacen :
         print("\nModelo".ljust(10), "|","Cantidad".rjust(10))
         for item in self.al:
             print("-"*24)
-            print(f"{item['modelo'].ljust(10)} : {item['cantidad'].rjust(10)} ")
+            print(f"{item['modelo'].ljust(10)} : {str(item['cantidad']).rjust(10)} ")
     def guardar_almacen(self):
         with open ("almacen.json" ,"w") as f:
             return json.dump(self.al , f, indent=4)
@@ -37,6 +37,8 @@ class almacen :
     def eliminacion_modelo (self):
         with open("entregado.json", "r") as f:
             z = json.load(f)
+        if z == []:
+            return print("No hay modelos para eliminar")
         modelo_a_eliminar = z[-1]
         for item in self.al:
             if item["modelo"] == modelo_a_eliminar["factura"]["modelo"]:

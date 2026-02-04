@@ -17,6 +17,9 @@ class correr_todo:
         print("3 . Verificar disponibilidad")
         print("4 . Salir\n")
         OPCION = int(input("ELIJA UNA OPCION\n"))
+        if not OPCION:
+            print("Por favor ingrese una opcion valida\n")
+            continue
         if OPCION == 1:
             a.leer_facturas()
             b = a.repeticion()

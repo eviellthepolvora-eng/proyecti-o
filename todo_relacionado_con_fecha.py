@@ -5,6 +5,8 @@ class fechinguiri:
     def entero(self,a):
         e = int(input(a))
         return e
+    def es_bisiesto(self, ano):
+        return (ano % 4 == 0 and ano % 100 != 0) or (ano % 400 == 0)
     def date(self):
             date_valid = False
             dia = self.entero("Dia:")
@@ -12,14 +14,14 @@ class fechinguiri:
             ano = self.entero("Año:")
             while date_valid == False:
                 if mes == 2 :
-                    if ano % 4 == 0 :
+                    if self.es_bisiesto(ano) :
                         if dia <= 29 and dia > 0 :
                             date_valid = True
                         else:
                             date_valid = False
                             print("repita la fecha")
                             break
-                    elif ano % 4 != 0 :
+                    if not self.es_bisiesto(ano):
                         if dia > 0 and dia <= 28 :
                             date_valid = True
                         else:
@@ -67,3 +69,16 @@ class fechinguiri:
                 return json.load(f)
         except FileNotFoundError:
             return []
+    def incrementar_fecha(self, fecha):
+        dias_por_mes = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+        if self.es_bisiesto(fecha[2]):
+            dias_por_mes[1] = 29
+        fecha[0] += 1
+        if fecha[0] > dias_por_mes[fecha[1] - 1]:
+            fecha[0] = 1
+            fecha[1] += 1
+            if fecha[1] > 12:
+                fecha[1] = 1
+                fecha[2] += 1
+        return tuple(fecha)    
+    

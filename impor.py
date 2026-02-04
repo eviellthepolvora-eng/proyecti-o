@@ -104,17 +104,23 @@ class eventoun:
         return resultados
     
     def sugerir_siguiente_fecha(self):
-        conteos = self.repeticion()
-        dias_disponibles = []
-        print("Entre que dias desea el envio")
-        primer_dia = fechinguiri().date()
-        segundo_dia = fechinguiri().date()
-        print(f"Buscando fechas disponibles entre {primer_dia} y {segundo_dia}")
-        while primer_dia <= segundo_dia:
-            if primer_dia not in conteos:
-                dias_disponibles.append(primer_dia)
-                primer_dia = (primer_dia[0]+1, primer_dia[1], primer_dia[2])
-        return dias_disponibles
+        try:
+            conteos = self.repeticion()
+            dias_disponibles = []
+            print("Entre que dias desea el envio")
+            primer_dia = fechinguiri().date()
+            segundo_dia = fechinguiri().date()
+            print(f"Buscando fechas disponibles entre {primer_dia} y {segundo_dia}")
+            while True:
+                if primer_dia not in list[conteos]:
+                    dias_disponibles.append(primer_dia)
+                    primer_dia = fechinguiri().incrementar_fecha(primer_dia)
+                if primer_dia > segundo_dia:
+                    break
+            return dias_disponibles
+        except Exception as e:
+            print(f"Ocurrió un error al sugerir fechas: {e}")
+            return []
     
     def mostrar_fechas(self,a):
         print("Estas son las fechas disponibles para la entrega:\n")

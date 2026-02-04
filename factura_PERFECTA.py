@@ -100,8 +100,7 @@ class factura:
         if cuño == "SI" :
             self.factura["CUÑO"] =" PAGADO "
             print("El cuño ha sido agregado a la factura , listo para entregar al almacenero")
-        else : 
-            not cuño or cuño !="SI"
+        if not cuño or cuño !="SI":
             print("Factura inválida")
             return None
         return "PAGADO"
