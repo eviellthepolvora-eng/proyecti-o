@@ -24,7 +24,7 @@ class almacen :
         print("\nModelo".ljust(10), "|","Cantidad".rjust(10))
         for item in self.al:
             print("-"*24)
-            print(f"{item['modelo'].ljust(10)} : {item['cantidad'].rjust(10)} ")
+            print(f"{item['modelo'].ljust(10)} : {str(item['cantidad']).rjust(10)} ")
     def guardar_almacen(self):
         with open ("almacen.json" ,"w") as f:
             return json.dump(self.al , f, indent=4)

@@ -1,10 +1,9 @@
 import json
-from todo_relacionado_con_fecha import fechinguiri 
+from datetime import datetime, date, timedelta
 class eventoun:
     def __init__(self):
         self.evento = self.cargar_eventos()  # cargamos los eventos anteriores
         self.entregado ="entregado.json"
-        #self.dias_disponibles = self.sugerir_siguiente_fecha()
     def guardar_entregado(self , factura , transportista):
             try:
                 with open("entregado.json", "r") as f:
@@ -105,21 +104,39 @@ class eventoun:
     
     def sugerir_siguiente_fecha(self):
         conteos = self.repeticion()
+        w = datetime
         dias_disponibles = []
         print("Entre que dias desea el envio")
-        primer_dia = fechinguiri().date()
-        segundo_dia = fechinguiri().date()
-        print(f"Buscando fechas disponibles entre {primer_dia} y {segundo_dia}")
-        while primer_dia <= segundo_dia:
-            if primer_dia not in conteos:
-                dias_disponibles.append(primer_dia)
-                primer_dia = (primer_dia[0]+1, primer_dia[1], primer_dia[2])
+        dia_inicio = w.validar_fecha()
+        dia_final = w.validar_fecha()
+        try:
+            inicio = datetime.fromisoformat(dia_inicio).date()
+            fin = datetime.fromisoformat(dia_final).date()
+        except Exception:
+            try:
+                inicio = datetime.strptime(dia_inicio, "%Y-%m-%d").date()
+                fin = datetime.strptime(dia_final, "%Y-%m-%d").date()
+            except Exception:
+                print("Formato de fecha invalido. Use YYYY-MM-DD.")
+                return []
+        if inicio > fin:
+            print("La fecha inicial debe ser anterior o igual a la final.")
+            return []
+        print(f"Buscando fechas disponibles entre {inicio} y {fin}")
+        while inicio <= fin:
+            if conteos.get(inicio, 0) < 3:
+                dias_disponibles.append(dia_inicio)
+            dia_inicio = dia_inicio + timedelta(days=1)
         return dias_disponibles
     
     def mostrar_fechas(self,a):
         print("Estas son las fechas disponibles para la entrega:\n")
         for i , n in enumerate(a, start = 1):
-            print (f"{i} . {n}\n")
+            if isinstance(n, (date, datetime)):
+                n_str = n.isoformat()
+            else:
+                print (f"{i} . {n}\n")
+            
 
 #manana hacer commit
 #cambiar todo el proyecto a data time para manejar fechas con mas facilidad

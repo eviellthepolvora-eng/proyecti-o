@@ -1,11 +1,11 @@
-from todo_relacionado_con_fecha import fechinguiri
+from  datetime import date , datetime, timedelta
 from impor import eventoun
 from transporte import transportista
 from almacen_clases import almacen
 class correr_todo:
     print("Buen dia señor")
     print("Que dia es hoy")
-    hoy = str(fechinguiri().date())
+    hoy = date.today()
     # meter el dia
     c = transportista()
     a = eventoun()
