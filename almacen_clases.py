@@ -35,8 +35,11 @@ class almacen :
         except FileNotFoundError:
             return []
     def eliminacion_modelo (self):
-        with open("entregado.json", "r") as f:
-            z = json.load(f)
+        try:
+            with open("entregado.json", "r") as f:
+                z = json.load(f)
+        except FileNotFoundError:
+            return print("No hay entregas registradas aún")
         if z == []:
             return print("No hay modelos para eliminar")
         modelo_a_eliminar = z[-1]

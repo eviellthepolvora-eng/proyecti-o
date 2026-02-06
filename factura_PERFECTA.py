@@ -13,21 +13,22 @@ class factura:
         for i, m in enumerate(modelos):
             print(f"{i} = {m}")
         while True:
-            eleccion =int(input(f"Escoje el modelo\n"))
-            #if not eleccion.isdigit() :
-            #    print("Introduzca un numero valido")
-            #    continue
-            if 0 <= eleccion < len(modelos): 
-                self.factura["MODELO"] = modelos[eleccion]
-                cant = int(input("Cuantas motos deseas :\n"))
-                if not cant:
-                    self.factura["CANTIDAD"] = 1
+            try:
+                eleccion = int(input(f"Escoje el modelo\n"))
+                if 0 <= eleccion < len(modelos): 
+                    self.factura["MODELO"] = modelos[eleccion]
+                    cant = int(input("Cuantas motos deseas :\n"))
+                    if not cant or cant <= 0:
+                        self.factura["CANTIDAD"] = 1
+                    else:
+                        self.factura["CANTIDAD"] = cant
+                    return modelos[eleccion], cant
                 else:
-                    self.factura["CANTIDAD"] = cant
-            else:
+                    print("Introduzca un numero valido")
+                    continue
+            except ValueError:
                 print("Introduzca un numero valido")
                 return None
-            return modelos[eleccion] , cant
     def direccion(self):
         provincia = input("Provincia:\n")
         municipio = input("Municipio:\n")

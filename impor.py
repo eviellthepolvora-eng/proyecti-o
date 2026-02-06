@@ -96,10 +96,13 @@ class eventoun:
                 return "debe cambiar de dia"
         return contador
     
-    def filtrado(self , fecha):
+    def filtrado(self, fecha):
+        """Filtra facturas por fecha exacta (tupla)"""
         resultados = []
         for factura in self.evento:
-            if factura['fecha'] == fecha:
+            # Asegurar que comparamos tupla con tupla
+            fecha_factura = factura.get('fecha')
+            if fecha_factura == fecha:
                 resultados.append(factura)
         return resultados
     
@@ -111,12 +114,24 @@ class eventoun:
             primer_dia = fechinguiri().date()
             segundo_dia = fechinguiri().date()
             print(f"Buscando fechas disponibles entre {primer_dia} y {segundo_dia}")
+            
+            # Validar que primer_dia sea menor o igual a segundo_dia
+            if list(primer_dia) > list(segundo_dia):
+                primer_dia, segundo_dia = segundo_dia, primer_dia
+            
+            # Convertir a listas para manipular
+            primer_dia = list(primer_dia)
+            segundo_dia = list(segundo_dia)
+            
             while True:
-                if primer_dia not in list[conteos]:
-                    dias_disponibles.append(primer_dia)
-                    primer_dia = fechinguiri().incrementar_fecha(primer_dia)
-                if primer_dia > segundo_dia:
+                fecha_tupla = tuple(primer_dia)
+                if fecha_tupla not in conteos:
+                    dias_disponibles.append(fecha_tupla)
+                
+                if primer_dia >= segundo_dia:
                     break
+                primer_dia = list(fechinguiri().incrementar_fecha(primer_dia))
+            
             return dias_disponibles
         except Exception as e:
             print(f"Ocurrió un error al sugerir fechas: {e}")

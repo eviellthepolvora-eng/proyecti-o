@@ -1,40 +1,26 @@
 [
     {
-        "fecha": "(2, 3, 2023)",
-        "factura": {
-            "MODELO": "Treck",
-            "DIRECCION": [
-                "HAVANA",
-                "guanabo",
-                "2",
-                [
-                    "f",
-                    "g"
-                ],
-                " Casa: 321"
-            ],
-            "CLIENTE": "Nombre : ('evo', 'gonzalez') , Apellidos : ('almeida', 'cruz')",
-            "TELEFONO": "+53 57848393",
-            "CU\u00d1O": " PAGADO "
-        }
-    },
-    {
-        "fecha": "(2, 3, 2023)",
+        "fecha": [
+            10,
+            2,
+            2026
+        ],
         "factura": {
             "MODELO": "Yamaha",
+            "CANTIDAD": 2,
             "DIRECCION": [
-                "havana",
-                "guaana",
-                "2",
+                "provincia",
+                "municipio",
+                "calle",
                 [
-                    "r",
-                    "s"
+                    "entre",
+                    "y"
                 ],
-                " Casa: 33"
+                "Casa: 5"
             ],
-            "CLIENTE": "Nombre : ('bol', 'usain') , Apellidos : ('van', 'hel')",
-            "TELEFONO": "+53 57385302",
-            "CU\u00d1O": " PAGADO "
+            "CLIENTE": "Nombre : ('Juan', 'Pedro') , Apellidos : ('Garc\u00eda', 'L\u00f3pez')",
+            "TELEFONO": "+1 88888888",
+            "CU\u00d1O": "PAGADO"
         }
     }
 ]
